@@ -12,7 +12,7 @@
     "inline:css": "rm -rf dist/index.html && critical src/index.html --minify --inline --base src/ > dist/index.html",
     "minify:html": "htmlmin -o dist/index.html dist/index.html",
     "uglify": "uglifyjs src/js/*.js -o dist/js/script.min.js",
-    "startandsync": "node index & browser-sync start --proxy 'localhost:5000' --files 'src'",
+    "startandsync": "node src/index.js & browser-sync start --proxy 'localhost:5000' --files 'src'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "E Keane",
