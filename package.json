@@ -1,0 +1,25 @@
+{
+  "name": "uasabi_static_site",
+  "version": "1.0.0",
+  "description": "A static site for Uasabi Ltd",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "clean": "rm -r dist",
+    "postclean": "mkdir dist",
+    "initiate-html": "npm run inline:css && npm run minify:html",
+    "inline:css": "cat src/index.html | critical --minify --base src/ --inline > src/index.critical.html",
+    "minify:html": "htmlmin -o dist/index.html src/index.critical.html",
+    "uglify": "uglifyjs src/js/*.js -o dist/js/script.min.js",
+    "startandsync": "node index & browser-sync start --proxy 'localhost:5000' --files 'src'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "E keane",
+  "license": "MIT",
+  "dependencies": {
+    "critical": "^0.8.4",
+    "express": "^4.15.2",
+    "html-minifier-cli": "^0.1.0",
+    "uglify-js": "^2.8.22"
+  }
+}
