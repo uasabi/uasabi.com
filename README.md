@@ -8,7 +8,7 @@ Install dependencies with:
 $ yarn install
 ```
 
-In development you can run the app and reload it when a change occurts with:
+In development you can run the app and reload it when a change occurs with:
 
 ```bash
 $ yarn run startandsync
@@ -27,4 +27,3 @@ The application is launched with
 ```bash
 $ yarn start
 ```
-
