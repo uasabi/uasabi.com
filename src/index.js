@@ -9,7 +9,7 @@ app.use('/js', express.static(path.join(__dirname, 'js/')));
 app.use('/css', express.static(path.join(__dirname, 'css/')));
 
 console.log(__dirname)
-app.get('/', (request, response) => response.sendFile(path.join(__dirname, 'index.html')));
+app.get('/', (request, response) => response.sendFile(path.join(__dirname, 'index.critical.html')));
 
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
