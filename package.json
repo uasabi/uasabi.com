@@ -8,9 +8,9 @@
     "build": "npm run clean && npm run copy && npm run initiate-html && npm run uglify",
     "copy": "cp -r src/* dist",
     "clean": "rm -rf dist && mkdir dist",
-    "initiate-html": "npm run inline:css && npm run minify:html",
-    "inline:css": "critical src/index.html --base src/ --inline --folder dist > dist/index.html",
-    "minify:html": "html-minifier --minify-css --collapse-whitespace -o dist/index.html dist/index.critical.html",
+    "initiate-html": "npm run minify:html && npm run inline:css",
+    "inline:css": "critical src/indexmin.html --minify --inline --base src/ > dist/index.html",
+    "minify:html": "html-minifier --collapse-whitespace --minify-css -o src/indexmin.html src/index.html",
     "uglify": "uglifyjs src/js/*.js -o dist/js/script.min.js",
     "startandsync": "node src/index.js & browser-sync start --proxy 'localhost:5000' --files 'src'",
     "test": "echo \"Error: no test specified\" && exit 1"
