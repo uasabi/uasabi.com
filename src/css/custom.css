@@ -15,3 +15,31 @@ body {
 .compass_svg {
   fill: #343434;
 }
+
+#image-1 {
+  background-image: url('../img/home11.jpg');
+  background-repeat: no-repeat;
+  background-position: initial;
+  opacity: 1;
+}
+
+#image-2 {
+  background-image: url('../img/home2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+
+#image-3 {
+  background-image: url('../img/home9.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+
+#image-4 {
+  background-image: url('../img/home4.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
