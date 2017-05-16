@@ -20,6 +20,7 @@ body {
   background-image: url('../img/home11.jpg');
   background-repeat: no-repeat;
   background-position: initial;
+  background-size:cover;
   opacity: 1;
 }
 
