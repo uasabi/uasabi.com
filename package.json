@@ -9,8 +9,8 @@
     "copy": "cp -r src/* dist",
     "clean": "rm -rf dist && mkdir dist",
     "initiate-html": "npm run minify:html && npm run inline:css",
-    "inline:css": "critical src/indexmin.html --minify --inline --base src/ > dist/index.html",
-    "minify:html": "html-minifier --collapse-whitespace --minify-css -o src/indexmin.html src/index.html",
+    "inline:css": "critical dist/indexmin.html --minify --inline --base src/ >! dist/index.html",
+    "minify:html": "html-minifier --collapse-whitespace --minify-css -o dist/indexmin.html src/index.html",
     "startandsync": "npm start & browser-sync start --proxy 'localhost:8080' --files 'src'"
   },
   "author": "E Keane",
