@@ -16,9 +16,9 @@
   "author": "E Keane",
   "license": "MIT",
   "dependencies": {
-    "critical": "^0.8.4",
+    "critical": "^0.9.1",
     "html-minifier": "^3.4.4",
     "http-server": "^0.10.0",
-    "uglify-js": "^2.8.22"
+    "uglify-js": "^3.1.0"
   }
 }
