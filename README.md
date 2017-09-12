@@ -1,5 +1,7 @@
 # Uasabi.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/uasabi/uasabi.com.svg)](https://greenkeeper.io/)
+
 ## Running locally
 
 Install dependencies with:
