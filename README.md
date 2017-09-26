@@ -8,12 +8,6 @@ Install dependencies with:
 $ yarn install
 ```
 
-In development you can run the app and reload it when a change occurs with:
-
-```bash
-$ yarn run startandsync
-```
-
 ## Deployment
 
 The code is deployed on build with

@@ -1,24 +1,17 @@
 {
-  "name": "uasabi_static_site",
+  "name": "uasabi",
   "version": "1.0.0",
-  "description": "A static site for Uasabi Ltd",
-  "main": "",
+  "description": "Uasabi Ltd static website",
   "scripts": {
-    "start": "http-server dist",
-    "build": "npm run clean && npm run copy && npm run initiate-html",
-    "copy": "cp -r src/* dist",
-    "clean": "rm -rf dist && mkdir dist",
-    "initiate-html": "npm run minify:html && npm run inline:css",
-    "inline:css": "critical dist/indexmin.html --minify --inline --base src/ >! dist/index.html",
-    "minify:html": "html-minifier --collapse-whitespace --minify-css -o dist/indexmin.html src/index.html",
-    "startandsync": "npm start & browser-sync start --proxy 'localhost:8080' --files 'src'"
+    "build": "node build.js",
+    "start": "yarn http-server ./src"
   },
-  "author": "E Keane",
+  "author": "Daniele Polencic",
   "license": "MIT",
   "dependencies": {
-    "critical": "^0.8.4",
-    "html-minifier": "^3.4.4",
+    "critical": "^0.9.1",
     "http-server": "^0.10.0",
-    "uglify-js": "^2.8.22"
+    "shelljs": "^0.7.8",
+    "tachyons": "^4.8.1"
   }
 }
