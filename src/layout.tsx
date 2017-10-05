@@ -114,3 +114,7 @@ function Block({description, title, index}: {title: string, description: string,
     <p className="serif lh-copy measure-narrow pl4-l">{description}</p>
   </li>
 }
+
+export function Careers() {
+  return <h1>Hello World!</h1>;
+}
