@@ -67,28 +67,24 @@ export function Home() {
       <section className="pt2">
         <h3 className="f2 tc sans-serif dark-gray ph3 pb4 pb5-ns">Uasabi believes in creating meaningful work through values</h3>
         <ul className="list cf ph3">
-          <li className="f4 w-80-m w-50-l fl-l center">
-            <div className="cf"><span className="fl w2 sans-serif b light-blue">1</span><hr className="ba bw1 b--light-blue w-40 w-60-ns fl"/></div>
-            <h4 className="sans-serif dark-gray pl4-l pt3-l">People-first engineering</h4>
-            <p className="serif lh-copy measure-narrow pl4-l">People don't wish for software, they seek usable solutions that improve their lives. Software is simply a means to an end, a tool that we use to give people the freedom to create, communicate, and save time. We believe that during the design process we should never lose sight of what the user <em>really</em> wants. </p>
-          </li>
-          <li className="f4 w-80-m w-50-l fl-l center">
-            <div className="cf"><span className="fl w2 sans-serif b light-blue">2</span><hr className="ba bw1 b--light-blue w-40 w-60-ns fl"/></div>
-            <h4 className="sans-serif dark-gray pl4-l pt3-l">Predictable code</h4>
-            <p className="serif lh-copy measure-narrow pl4-l">Every line of code should have a dedicated purpose and clear function. What we do is not about boundless artistic expression, it is about providing people with a reliable and trustworthy tool. We keep our work simple and open so that we can give the world something powerful. Something that people can use, adapt, and rely on.</p>
-          </li>
+          <Block
+            index={1}
+            title={'People-first engineering'}
+            description={'People don\'t wish for software, they seek usable solutions that improve their lives. Software is simply a means to an end, a tool that we use to give people the freedom to create, communicate, and save time. We believe that during the design process we should never lose sight of what the user *really* wants.'}/>
+          <Block
+            index={2}
+            title={'Predictable code'}
+            description={'Every line of code should have a dedicated purpose and clear function. What we do is not about boundless artistic expression, it is about providing people with a reliable and trustworthy tool. We keep our work simple and open so that we can give the world something powerful. Something that people can use, adapt, and rely on.'}/>
         </ul>
         <ul className="list cf ph3">
-          <li className="f4 w-80-m w-50-l fl-l center">
-            <div className="cf"><span className="fl w2 sans-serif b light-blue">3</span><hr className="ba bw1 b--light-blue w-40 w-60-ns fl"/></div>
-            <h4 className="sans-serif dark-gray pl4-l pt3-l">Pragmatism always</h4>
-            <p className="serif lh-copy measure-narrow pl4-l">The world changes constantly, ebbing and flowing as it goes. Our solutions must accept this reality and be fluid and simple to change. They must be able to react to the world around them. Delivering software is not a one and done journey. We do it. We do it right. Then we do it even better. That is our journey.</p>
-          </li>
-          <li className="f4 w-80-m w-50-l fl-l center">
-            <div className="cf"><span className="fl w2 sans-serif b light-blue">4</span><hr className="ba bw1 b--light-blue w-40 w-60-ns fl"/></div>
-            <h4 className="sans-serif dark-gray pl4-l pt3-l">Clear communication</h4>
-            <p className="serif lh-copy measure-narrow pl4-l">Communication is the life-blood of every creative journey. We work tirelessly to understand the needs of our users to ensure that we create something that fulfils a need. By building relationships on a foundation of intellectual curiosity, social tolerance, and mutual respect, we create connections which result in the tools the world deserves. </p>
-          </li>
+          <Block
+            index={3}
+            title={'Pragmatism always'}
+            description={'The world changes constantly, ebbing and flowing as it goes. Our solutions must accept this reality and be fluid and simple to change. They must be able to react to the world around them. Delivering software is not a one and done journey. We do it. We do it right. Then we do it even better. That is our journey.'}/>
+          <Block
+            index={4}
+            title={'Clear communication'}
+            description={'Communication is the life-blood of every creative journey. We work tirelessly to understand the needs of our users to ensure that we create something that fulfils a need. By building relationships on a foundation of intellectual curiosity, social tolerance, and mutual respect, we create connections which result in the tools the world deserves.'}/>
         </ul>
       </section>
     </div>
@@ -109,4 +105,12 @@ export function Home() {
       </div>
     </section>
   </div>;
+}
+
+function Block({description, title, index}: {title: string, description: string, index: number}) {
+  return <li className="f4 w-80-m w-50-l fl-l center">
+    <div className="cf"><span className="fl w2 sans-serif b light-blue">{index}</span><hr className="ba bw1 b--light-blue w-40 w-60-ns fl"/></div>
+    <h4 className="sans-serif dark-gray pl4-l pt3-l">{title}</h4>
+    <p className="serif lh-copy measure-narrow pl4-l">{description}</p>
+  </li>
 }
