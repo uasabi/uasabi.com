@@ -1,7 +1,15 @@
 import * as React from 'react';
 import {cat} from 'shelljs';
+import * as marked from 'marked';
 
 const tachyons = cat('./node_modules/tachyons/css/tachyons.min.css');
+
+function NavigationFooter() {
+  return <ul className="list tc pa0 mt0 pt4">
+    <li className="dib"><a href="/" className="link dib sans-serif f5 b white ph2">Home</a></li>
+    <li className="dib"><a href="/careers" className="link dib sans-serif f5 b white ph2">Careers</a></li>
+  </ul>
+}
 
 export function Layout({Content}: {Content: () => JSX.Element}) {
   return <html lang="en" className="bg-light-blue">
@@ -21,41 +29,58 @@ export function Layout({Content}: {Content: () => JSX.Element}) {
   <body className="bg-near-white ba b--light-blue bw3">
   <Content />
   <footer className="bg-dark-gray">
-  {/* <!-- <ul class="list tc pa0 mt0 pt4">
-    <li class="dib"><a href="#" class="link dib sans-serif f5 b white">Home</a></li>
-  </ul> --> */}
-  <ul className="list tc pa0 mt0 pt4">
-    <li className="dib">
-      <a href="https://github.com/uasabi" className="link dib w2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.4 43.4">
-          <style>
-            {`.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}`}
-          </style>
-          <path className="st0" d="M21.6 6.1c-9 0-16.3 7.3-16.3 16.3 0 7.2 4.7 13.3 11.1 15.5.8.1 1.1-.4 1.1-.8v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.1-1.1.6-1.8 1-2.2-3.6-.4-7.4-1.8-7.4-8.1 0-1.8.6-3.2 1.7-4.4-.2-.4-.7-2.1.2-4.3 0 0 1.4-.4 4.5 1.7 1.3-.4 2.7-.5 4.1-.5 1.4 0 2.8.2 4.1.5 3.1-2.1 4.5-1.7 4.5-1.7.9 2.2.3 3.9.2 4.3 1 1.1 1.7 2.6 1.7 4.4 0 6.3-3.8 7.6-7.4 8 .6.5 1.1 1.5 1.1 3V37c0 .4.3.9 1.1.8C33.4 35.6 38 29.5 38 22.3c-.1-8.9-7.4-16.2-16.4-16.2z"/>
-        </svg>
-      </a>
-    </li>
-  </ul>
-  <p className="tc f6 lh-copy serif mb0 pb3 light-silver">&copy;Copyright 2017</p>
-</footer>
+    <NavigationFooter />
+    <ul className="list tc pa0 mt0 pt4">
+      <li className="dib">
+        <a href="https://github.com/uasabi" className="link dib w2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.4 43.4">
+            <style>
+              {`.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}`}
+            </style>
+            <path className="st0" d="M21.6 6.1c-9 0-16.3 7.3-16.3 16.3 0 7.2 4.7 13.3 11.1 15.5.8.1 1.1-.4 1.1-.8v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.1-1.1.6-1.8 1-2.2-3.6-.4-7.4-1.8-7.4-8.1 0-1.8.6-3.2 1.7-4.4-.2-.4-.7-2.1.2-4.3 0 0 1.4-.4 4.5 1.7 1.3-.4 2.7-.5 4.1-.5 1.4 0 2.8.2 4.1.5 3.1-2.1 4.5-1.7 4.5-1.7.9 2.2.3 3.9.2 4.3 1 1.1 1.7 2.6 1.7 4.4 0 6.3-3.8 7.6-7.4 8 .6.5 1.1 1.5 1.1 3V37c0 .4.3.9 1.1.8C33.4 35.6 38 29.5 38 22.3c-.1-8.9-7.4-16.2-16.4-16.2z"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <p className="tc f6 lh-copy serif mb0 pb3 light-silver">&copy;Copyright 2017</p>
+  </footer>
 </body>
 </html>
+}
+
+function Container(Content: () => JSX.Element) {
+  return <div className="container">
+  <div className="logo w3 fl-l center pa2 mn-l">
+    <Logo />
+  </div>
+  <div className="container w-80-m w-60-l center"><Content /></div>
+  </div>
+}
+
+function Navigation({name}: {name: string}) {
+  return <ul className="list tc pa0 pt5-l">
+    <li className="dib"><a href="/" className="link dib sans-serif f5 b dark-gray bb b--light-blue bw2 pb1">{name}</a></li>
+  </ul>;
+}
+
+function Logo() {
+  return <a href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.4 110.4">
+      <path fill="#48A4D7" d="M89.7 85.1l-6.1-10.6-2-3.6-17.7-31.1-6.2 10.6 11.7 20.5 2.1 3.6 6 10.6 2 3.6h.3-58l-6.2 10.5 30.2.1h52l-8.1-14.2z"/>
+      <path fill="#89EBEB" d="M37.6 85.1h35.8l-6.1-10.6H23.2l1.5-2.6.6-1 22.3-39 5.7-10.1-5.7-9.9-.4-.7-34.1 59.7L5 85.1h12.1z"/>
+      <path fill="#00CACC" d="M47.5 39.8L29.4 70.9h12.3l5.9-10.1 6-10.4 2.1-3.6 6.1-10.6 2.1-3.5.1-.3 22.3 38.5L94.5 85h12.2l-8.1-14.1L64 11.3 57.8 22 47.6 39.7z"/>
+    </svg>
+  </a>
 }
 
 export function Home() {
   return <div className="container">
     <div className="logo w3 fl-l center pa2 mn-l">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.4 110.4">
-        <path fill="#48A4D7" d="M89.7 85.1l-6.1-10.6-2-3.6-17.7-31.1-6.2 10.6 11.7 20.5 2.1 3.6 6 10.6 2 3.6h.3-58l-6.2 10.5 30.2.1h52l-8.1-14.2z"/>
-        <path fill="#89EBEB" d="M37.6 85.1h35.8l-6.1-10.6H23.2l1.5-2.6.6-1 22.3-39 5.7-10.1-5.7-9.9-.4-.7-34.1 59.7L5 85.1h12.1z"/>
-        <path fill="#00CACC" d="M47.5 39.8L29.4 70.9h12.3l5.9-10.1 6-10.4 2.1-3.6 6.1-10.6 2.1-3.5.1-.3 22.3 38.5L94.5 85h12.2l-8.1-14.1L64 11.3 57.8 22 47.6 39.7z"/>
-      </svg>
+    <Logo />
     </div>
     <div className="container w-80-m w-60-l center">
       <header>
-        <ul className="list tc pa0 pt5-l">
-          <li className="dib"><a href="/" className="link dib sans-serif f5 b dark-gray bb b--light-blue bw2 pb1">Home</a></li>
-        </ul>
+        <Navigation name="Home"/>
         <h2 className="sans-serif f2 f1-ns lh-title measure-narrow dark-gray pa3 pt4">Uasabi is a software consultancy delivering testable and predictable code from London, UK</h2>
         <p className="serif f4 lh-copy measure-wide pa3 pt0">In the past decade Uasabi has been practising software development with a focus on testing and automation. Our expertise has been recognised through our work with companies in the financial and public sector.</p>
         <div className="more w3 center pt5-l">
@@ -115,6 +140,88 @@ function Block({description, title, index}: {title: string, description: string,
   </li>
 }
 
+function JobSpec({copy}: {copy: string}): JSX.Element {
+  const renderer = new marked.Renderer();
+  renderer.link = (href: string, title: string, text: string) => `<a href="${href}" class="link blue" target="_blank">${text}</a>`
+  const markdownAsHtml = marked(copy, {renderer});
+  return <div dangerouslySetInnerHTML={{__html:markdownAsHtml}} className="measure-wide lh-copy pb5"/>
+}
+
 export function Careers() {
-  return <h1>Hello World!</h1>;
+  const Typescript = `
+Uasabi Ltd is looking for a talented engineer on a freelance basis to help develop distributed application using functional programming, Typescript and Redis.
+
+You will work on:
+
+- A framework to build distributed applications using the actor patterns
+- Develop integrations with REST API & Websockets for real-time analysis of forex prices
+
+#### About you
+
+- You can demonstrated your Typescript skills with a sample project
+- You have experience in creating definition types for Typescript
+- You have experience in TDD and used snapshotting and data driven tests
+- You used datatypes such as Maybe, Either and Optional in the past
+- You know what I mean when I say _"can you even lift bro?"_
+
+#### Arrangement & renumeration
+
+This is an ongoing **REMOTE** engagement on a freelance basis. Please let us know your daily rate.
+
+#### How to apply
+
+Write a simple proof of concept to compute the price spread between Bitcoin exchanges. You can find the details on how to complete the challenge at the following link: [https://github.com/uasabi/bitcoin-challenge](https://github.com/uasabi/bitcoin-challenge).
+
+Once you solved the challenge, please send us a link with your repository and a link to your Linkedin profile at [careers@uasabi.com](mailto:careers@uasabi.com).`
+  const Kubernetes = `
+Uasabi Ltd is looking for a talented engineer on a freelance basis to help:
+
+- create automation scripts for Kubernetes based applications
+- authoring and designing training material for educational content
+
+#### About you
+
+- You are a talented engineer
+- You are experienced in Docker
+- You can clearly articulate how to architect applications to best leverage microservices
+- You deployed and scaled applications on Kubernetes
+- You're patient and understand the value in pair programming and knowledge sharing
+- You fluent in either Java, Scala, Python or Node.js
+- You use CI/CD on a daily basis and can’t imagine a world without it
+
+#### Arrangement & renumeration
+
+This is an ongoing **REMOTE** engagement on a freelance basis. Please let us know your daily rate.
+
+#### How to apply
+
+Write a deployment for Kubernetes. You can find the details on how to complete the challenge at the following link: [https://github.com/uasabi/kubernetes-challenge](https://github.com/uasabi/kubernetes-challenge).
+
+Once you solved the challenge, please send us a link with your repository and a link to your Linkedin profile at [careers@uasabi.com](mailto:careers@uasabi.com).`;
+
+  return Container((() =>
+  <div>
+    <header>
+      <Navigation name="Careers"/>
+      <h2 className="sans-serif f2 f1-ns lh-title measure-narrow dark-gray pa3 pt4 tc tl-ns">Careers</h2>
+    </header>
+    <section className="pa3 pt2 pb4-ns mb4-ns">
+      <p className="sans-serif copy measure">Current openings:</p>
+      <ul className="sans-serif pt1">
+        <li className="pb2"><a href="#typescript" className="link b dark-gray">REMOTE - Typescript engineer</a></li>
+        <li className="pv2"><a href="#kubernetes" className="link b dark-gray">REMOTE - Kubernetes engineer</a></li>
+      </ul>
+      <ul className="list pl0 pt4">
+        <li className="sans-serif" id="typescript">
+          <h3>REMOTE - Typescript engineer</h3>
+          <JobSpec copy={Typescript} />
+        </li>
+        <li className="sans-serif" id="kubernetes">
+          <h3>REMOTE - Kubernetes engineer</h3>
+          <JobSpec copy={Kubernetes} />
+        </li>
+      </ul>
+    </section>
+  </div>
+  ));
 }
