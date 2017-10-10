@@ -3,15 +3,28 @@
   "version": "1.0.0",
   "description": "Uasabi Ltd static website",
   "scripts": {
-    "build": "node build.js",
-    "start": "yarn http-server ./src"
+    "build": "ts-node src/index.tsx -o ./dist",
+    "dev": "chokidar './src/*.tsx' -c 'yarn run build' & http-server ./dist"
   },
   "author": "Daniele Polencic",
   "license": "MIT",
   "dependencies": {
-    "critical": "^0.9.1",
-    "http-server": "^0.10.0",
+    "@types/commander": "^2.11.0",
+    "@types/marked": "^0.3.0",
+    "@types/react": "^16.0.9",
+    "@types/react-dom": "^16.0.0",
+    "@types/shelljs": "^0.7.4",
+    "commander": "^2.11.0",
+    "marked": "^0.3.6",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "shelljs": "^0.7.8",
-    "tachyons": "^4.8.1"
+    "tachyons": "^4.8.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "http-server": "^0.10.0"
   }
 }
